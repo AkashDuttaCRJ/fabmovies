@@ -1,0 +1,146 @@
+.cover-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.content-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(15, 15, 15, 0.1),
+    rgba(15, 15, 15)
+  );
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.poster-container {
+  width: 20%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 8rem;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+.poster {
+  width: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.contents {
+  width: 55%;
+  padding-left: 8rem;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.desc {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.genres-container {
+  display: flex;
+  align-items: center;
+  margin-left: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.genre {
+  padding: 0.5rem 0.8rem 0.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.rating {
+  margin: 0.5rem 0.8rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  background-color: rgb(255, 208, 0);
+  color: black;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.genre::before {
+  content: "";
+  padding-right: 0.5rem;
+  font-size: 18px;
+}
+
+.genre:nth-child(n) + .genre::before {
+  content: "•";
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.watch-btn {
+  font-family: inherit;
+  background-color: rgb(228, 0, 0);
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  margin-bottom: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.grey {
+  background-color: rgba(126, 126, 126, 0.7);
+  padding: 0.6rem 0.7rem;
+  margin-left: 0.5rem;
+}
+
+.play {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.plus {
+  width: 18px;
+  height: 18px;
+}
+
+.star {
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+}
