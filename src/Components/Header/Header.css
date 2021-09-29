@@ -21,6 +21,55 @@
   margin-right: 0.6rem;
 }
 
+.logo:hover > span {
+  animation: bounce 0.5s ease-in-out;
+}
+
+.logo:hover > span:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.logo:hover > span:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.logo:hover > span:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.logo:hover > span:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.logo:hover > span:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.logo:hover > span:nth-child(7) {
+  animation-delay: 0.3s;
+}
+
+.logo:hover > span:nth-child(8) {
+  animation-delay: 0.35s;
+}
+
+.logo:hover > span:nth-child(9) {
+  animation-delay: 0.4s;
+}
+
+.logo:hover > span:nth-child(10) {
+  animation-delay: 0.45s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 .links ul {
   display: flex;
   list-style: none;
@@ -36,6 +85,16 @@
 .links ul li .navlink:visited {
   color: rgba(255, 255, 255, 0.5) !important;
   font-weight: normal;
+}
+
+.links ul li {
+  transition: transform 0.2s ease;
+}
+
+.links ul li:hover,
+.links ul li:focus,
+.links ul li:active {
+  transform: translateY(-2px);
 }
 
 .active {
@@ -75,11 +134,36 @@
 
 .search-bar input[type="text"]::placeholder {
   color: #ffffffa9;
+  user-select: none;
+}
+
+.search-bar input[type="text"]:valid + .cross-btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: fill;
 }
 
 .submit-btn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  width: 0;
+}
+
+.cross-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  pointer-events: none;
+  transform: translateY(7px);
+  opacity: 0;
+  margin: auto 5px;
+  transition: all 0.3s ease;
+}
+
+.cross-icon {
+  width: 18px;
+  height: 18px;
   cursor: pointer;
 }
 
@@ -89,11 +173,24 @@
   cursor: pointer;
 }
 
+.label {
+  padding: 0.5rem;
+  margin: -0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.label:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
 .tmdb-credit {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
+  user-select: none;
 }
 
 .power {

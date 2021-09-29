@@ -20,17 +20,16 @@ function Wishlist() {
 
   const emptyMoviesList = () => setMovies([]);
 
-  const fetchItem = async (id) => {
-    const data = await fetchMovieById(id);
-    setMovies((prev) => [...prev, data]);
-  };
-
   useEffect(() => {
+    const fetchItems = async () => {
+      Promise.all(
+        listIds.map(async (id) => {
+          return await fetchMovieById(id);
+        })
+      ).then((result) => setMovies((prev) => [...prev, ...result]));
+    };
     emptyMoviesList();
-    listIds &&
-      listIds.forEach((item) => {
-        fetchItem(item);
-      });
+    listIds && fetchItems();
   }, [listIds]);
 
   return (

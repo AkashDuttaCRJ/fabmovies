@@ -42,6 +42,13 @@
   overflow: hidden;
   margin-right: 8rem;
   border: 5px solid rgba(255, 255, 255, 0.8);
+  transform-origin: bottom right;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.poster-container:hover {
+  transform: translateY(-20px) scale(1.05);
 }
 
 .poster {
@@ -120,12 +127,21 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
 }
 
 .grey {
   background-color: rgba(126, 126, 126, 0.7);
-  padding: 0.6rem 0.7rem;
+  padding: 0.7rem 0.7rem;
   margin-left: 0.5rem;
+}
+
+.grey:hover {
+  transform: scale(1.1);
 }
 
 .play {

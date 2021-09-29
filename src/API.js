@@ -6,9 +6,8 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/";
 const BACKDROP_SIZE = "w1280";
 const POSTER_SIZE = "w500";
 
-const TRENDING_MOVIE_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
-const TRENDING_SHOWS_URL = `${BASE_URL}/trending/tv/day?api_key=${API_KEY}`;
-const POPULAR_URL = `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+const TRENDING_MOVIE_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&include_adult=false`;
+const TRENDING_SHOWS_URL = `${BASE_URL}/trending/tv/day?api_key=${API_KEY}&include_adult=false`;
 
 export const fetchTrendingMovies = async () => {
   const response = await fetch(TRENDING_MOVIE_URL);
@@ -22,8 +21,18 @@ export const fetchTrendingShows = async () => {
   return data;
 };
 
-export const fetchPopularMovies = async () => {
-  const response = await fetch(POPULAR_URL);
+export const fetchPopularMovies = async (MEDIA_TYPE) => {
+  const response = await fetch(
+    `${BASE_URL}/${MEDIA_TYPE}/popular?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
+  );
+  const data = response.json();
+  return data;
+};
+
+export const fetchMovieByGenre = async (MEDIA_TYPE, GENRE) => {
+  const response = await fetch(
+    `${BASE_URL}/discover/${MEDIA_TYPE}?api_key=${API_KEY}&with_genres=${GENRE}&include_adult=false`
+  );
   const data = response.json();
   return data;
 };
@@ -39,6 +48,14 @@ export const fetchSearchResult = async (QUERY, PAGE) => {
 export const fetchMovieById = async (ID) => {
   const response = await fetch(
     `${BASE_URL}/movie/${ID}?api_key=${API_KEY}&language=en-US`
+  );
+  const data = response.json();
+  return data;
+};
+
+export const fetchVideoUrl = async (MEDIA_TYPE, ID) => {
+  const response = await fetch(
+    `${BASE_URL}/${MEDIA_TYPE}/${ID}/videos?api_key=${API_KEY}&language=en-US`
   );
   const data = response.json();
   return data;

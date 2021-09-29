@@ -5,7 +5,18 @@ import Play from "../../Assets/play-solid.svg";
 import Plus from "../../Assets/plus-solid.svg";
 import Star from "../../Assets/star-solid.svg";
 
-function Cover({ imageUrl, posterUrl, title, desc, genres, rating, shows }) {
+function Cover({
+  id,
+  imageUrl,
+  posterUrl,
+  title,
+  desc,
+  genres,
+  rating,
+  shows,
+  showTrailer,
+  sendVideoId,
+}) {
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
@@ -31,7 +42,13 @@ function Cover({ imageUrl, posterUrl, title, desc, genres, rating, shows }) {
           </div>
           <p className="desc">{truncate(desc, 200)}</p>
           <div className="btn-container">
-            <button className="watch-btn">
+            <button
+              className="watch-btn"
+              onClick={() => {
+                showTrailer(true);
+                sendVideoId(id);
+              }}
+            >
               <img src={Play} alt="" className="play" />
               WATCH TRAILER
             </button>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import "./Header.css";
 import SearchIcon from "../../Assets/search-solid.svg";
+import CrossIcon from "../../Assets/times-solid.svg";
 import Logo from "../../Assets/logo.svg";
 
 function Header() {
@@ -11,7 +12,16 @@ function Header() {
   return (
     <div className="header-container">
       <div className="logo">
-        <img src={Logo} alt="FabMovies-Logo" className="logo-svg" /> FabMovies
+        <img src={Logo} alt="FabMovies-Logo" className="logo-svg" />
+        <span>F</span>
+        <span>a</span>
+        <span>b</span>
+        <span>M</span>
+        <span>o</span>
+        <span>v</span>
+        <span>i</span>
+        <span>e</span>
+        <span>s</span>
       </div>
       <div className="links">
         <ul>
@@ -57,8 +67,9 @@ function Header() {
             className="form"
             onSubmit={(e) => {
               e.preventDefault();
-              history.push(`/search/${searchTerm}`);
+              searchTerm && history.push(`/search/${searchTerm}`);
             }}
+            noValidate
           >
             <input
               type="text"
@@ -69,6 +80,9 @@ function Header() {
               onChange={(e) => setSearchTerm(e.target.value)}
               required
             />
+            <button className="cross-btn" onClick={() => setSearchTerm("")}>
+              <img src={CrossIcon} alt="" className="cross-icon" />
+            </button>
             <label className="label">
               <input type="submit" className="submit-btn" value=" " />
               <img src={SearchIcon} alt="" className="search-icon" />
