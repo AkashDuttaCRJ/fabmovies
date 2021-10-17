@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Slider from "infinite-react-carousel";
 
 import {
@@ -15,6 +15,8 @@ import Header from "../Components/Header";
 import Cover from "../Components/Cover";
 import CardSection from "../Components/CardSection";
 import TrailerModal from "../Components/TrailerModal";
+import Menu from "../Components/Menu";
+import { WishlistContext } from "../WishlistContext";
 
 function Movies() {
   const [trending, setTrending] = useState(null);
@@ -29,6 +31,8 @@ function Movies() {
   const [openModal, setOpenModal] = useState(false);
   const [videoId, setVideoId] = useState();
   const [videoUrl, setVideoUrl] = useState();
+
+  const {menuOpen} = useContext(WishlistContext);
 
   useEffect(() => {
     getData();
@@ -74,6 +78,7 @@ function Movies() {
         <TrailerModal url={videoUrl.results} showTrailer={setOpenModal} />
       )}
       <Header />
+      {menuOpen && <Menu />}
       {trending && (
         <Slider autoplay arrows={false} className="carousel">
           {trending.results.map((result) => {

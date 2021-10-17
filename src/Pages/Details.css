@@ -1,0 +1,185 @@
+.contents-add {
+    padding-right: 8rem;
+    padding-left: 0;
+    width: 65%;
+}
+
+.poster-container-add {
+    margin-left: 8rem;
+    margin-right: 0;
+    cursor: default;
+}
+
+.poster-container-add:hover {
+    transform: translateY(-5px) scale(1);
+}
+
+.genres-container-add {
+    margin-bottom: 0;
+}
+
+.rating-add {
+    margin: 0.5rem 0 0.8rem;
+    max-width: max-content;
+}
+
+.grey-add {
+    margin-left: 0;
+    transition: all 0.3s ease;
+}
+
+.green {
+    background-color: rgb(124, 185, 3);
+}
+
+.plus-add {
+    margin-right: 10px;
+}
+
+.body-details {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.body-details-section {
+    margin: 2.5rem 8rem;
+}
+
+.body-details-section h3, .section-title-add {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.section-card-add {
+    cursor: default;
+    overflow: auto;
+    border-radius: 0;
+    height: max-content;
+}
+
+.section-card-add:hover {
+    transform: scale(1);
+}
+
+.section-card-add2 {
+    min-width: 20vw;
+    border-radius: 20px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.section-card-add2:hover {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.card-active {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.card-active:hover {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.card-poster-container {
+    height: 35vh;
+    width: 12rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-poster-container-add {
+    height: 20vh;
+    width: 20vw;
+}
+
+.card-poster-add {
+    object-fit: cover;
+}
+
+.char-name {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.4rem;
+}
+
+.actor-name {
+    display: flex;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.video-player {
+    margin: 0.6rem 8rem 1rem;
+    aspect-ratio: 16/9;
+}
+
+.no-data {
+    display: grid;
+    place-items: center; 
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media only screen and (max-width: 600px) {
+    .contents-add {
+        width: 100%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .poster-container-add {
+        margin-top: 3rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .content-container-add {
+        flex-direction: column;
+    }
+
+    .body-details-section {
+        margin: 1.2rem 1.5rem;
+    }
+    
+    .body-details-section h3, .section-title-add {
+        font-size: 1rem;
+    }
+
+    .body-details-section p {
+        font-size: 0.8rem;
+    }
+
+    .card-poster-container {
+        height: 25vh;
+        width: 9rem;
+    }
+
+    .char-name {
+        font-size: 0.8rem;
+    }
+
+    .actor-name {
+        font-size: 0.8rem;
+    }
+
+    .section-card-add2 {
+        min-width: 68vw;
+    }
+
+    .card-poster-container-add {
+        width: 68vw;
+        height: 19vh;
+    }
+
+    .video-player {
+        margin: 0.6rem 1.5rem 1rem;
+    }
+
+    .no-data {
+        font-size: 0.8rem;
+    }
+}

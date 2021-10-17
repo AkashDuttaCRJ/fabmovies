@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Slider from "infinite-react-carousel";
 
 import {
@@ -15,6 +15,8 @@ import Header from "../Components/Header";
 import Cover from "../Components/Cover";
 import CardSection from "../Components/CardSection";
 import TrailerModal from "../Components/TrailerModal";
+import Menu from "../Components/Menu";
+import { WishlistContext } from "../WishlistContext";
 
 function Shows() {
   const [trending, setTrending] = useState(null);
@@ -28,6 +30,8 @@ function Shows() {
   const [openModal, setOpenModal] = useState(false);
   const [videoId, setVideoId] = useState();
   const [videoUrl, setVideoUrl] = useState();
+
+  const {menuOpen} = useContext(WishlistContext);
 
   useEffect(() => {
     getData();
@@ -70,6 +74,7 @@ function Shows() {
         <TrailerModal url={videoUrl.results} showTrailer={setOpenModal} />
       )}
       <Header />
+      {menuOpen && <Menu />}
       {trending && (
         <Slider autoplay arrows={false} className="carousel">
           {trending.results.map((result) => {
@@ -91,12 +96,12 @@ function Shows() {
           })}
         </Slider>
       )}
-      {popular && <CardSection title="Popular" data={popular} />}
-      {animation && <CardSection title="Animation" data={animation} />}
-      {crime && <CardSection title="Crime" data={crime} />}
-      {drama && <CardSection title="Drama" data={drama} />}
-      {family && <CardSection title="Family" data={family} />}
-      {mystery && <CardSection title="Mystery" data={mystery} />}
+      {popular && <CardSection title="Popular" data={popular} shows />}
+      {animation && <CardSection title="Animation" data={animation} shows />}
+      {crime && <CardSection title="Crime" data={crime} shows />}
+      {drama && <CardSection title="Drama" data={drama} shows />}
+      {family && <CardSection title="Family" data={family} shows />}
+      {mystery && <CardSection title="Mystery" data={mystery} shows />}
     </div>
   );
 }

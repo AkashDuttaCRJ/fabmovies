@@ -8,3 +8,57 @@
   color: white;
   margin-bottom: 3rem;
 }
+
+.wishlist-results h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.wishlist-item {
+  margin-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-block: 0.5rem;
+}
+
+.wishlist-item p {
+  cursor: pointer;
+}
+
+.delete-btn {
+  border: none;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.delete-btn img {
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+}
+
+@media only screen and (max-width: 600px) {
+  .wishlist {
+    padding: 1rem 1.5rem;
+  }
+
+  .wishlist-results h3 {
+    font-size: 1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .wishlist-item p {
+    font-size: 0.8rem;
+  }
+
+  .delete-btn img {
+    --size: 18px;
+  }
+}

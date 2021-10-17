@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import "./Header.css";
 import SearchIcon from "../../Assets/search-solid.svg";
-import CrossIcon from "../../Assets/times-solid.svg";
+import menu from "../../Assets/menu-solid.svg";
 import Logo from "../../Assets/logo.svg";
+import { WishlistContext } from "../../WishlistContext";
 
 function Header() {
   const [searchTerm, setSearchTerm] = useState("");
   const history = useHistory();
+
+  const {menuOpen, setMenuOpen} = useContext(WishlistContext);
 
   return (
     <div className="header-container">
@@ -42,7 +45,7 @@ function Header() {
               exact
               className="navlink"
               activeClassName="active"
-              to={"/shows"}
+              to={"/tv"}
               style={{ textDecoration: "none" }}
             >
               Tv Shows
@@ -80,24 +83,26 @@ function Header() {
               onChange={(e) => setSearchTerm(e.target.value)}
               required
             />
-            <button className="cross-btn" onClick={() => setSearchTerm("")}>
-              <img src={CrossIcon} alt="" className="cross-icon" />
-            </button>
             <label className="label">
               <input type="submit" className="submit-btn" value=" " />
               <img src={SearchIcon} alt="" className="search-icon" />
             </label>
           </form>
         </div>
+        <a target="_blank" rel="noreferrer" href="https://www.themoviedb.org/">
         <div className="tmdb-credit">
           <div className="power">Powered by</div>
-          <img
+            <img
             src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
             alt="tmdb-logo"
             className="tmdb-logo"
-          />
+          />  
         </div>
+        </a>
       </div>
+      <button className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+          <img src={menu} alt="" />
+      </button>
     </div>
   );
 }

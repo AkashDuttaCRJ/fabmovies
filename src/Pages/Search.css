@@ -19,7 +19,12 @@
   height: auto;
   border-radius: 20px;
   overflow: hidden;
-  border: 5px solid rgba(255, 255, 255, 0.8);
+  /* border: 5px solid rgba(255, 255, 255, 0.8); */
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .poster-card {
@@ -45,4 +50,22 @@
   border-radius: 7px;
   font-family: inherit;
   font-size: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .heading {
+    font-size: 1.2rem;
+  }
+
+  .search-results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .show-more button {
+    font-size: 0.8rem;
+  }
 }

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getGenre, getShowsGenre } from "../../API";
 import "./Cover.css";
 import Play from "../../Assets/play-solid.svg";
 import Plus from "../../Assets/plus-solid.svg";
 import Star from "../../Assets/star-solid.svg";
+import Check from "../../Assets/check-solid.svg";
+import { useHistory } from "react-router";
+import { WishlistContext } from "../../WishlistContext";
 
 function Cover({
   id,
@@ -20,6 +23,21 @@ function Cover({
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
+
+  const history = useHistory();
+
+  const [isAdded, setIsAdded] = useState(false);
+  const {wishlistMovies, setWishlistMovies,  wishlistShows, setWishlistShows} = useContext(WishlistContext);
+
+  useEffect(() => {
+    const checkWishlistAdded = () => {
+        !shows
+        ? setIsAdded(wishlistMovies?.includes(id))
+        : setIsAdded(wishlistShows?.includes(id));
+    }
+    checkWishlistAdded();
+    // eslint-disable-next-line
+}, [id, wishlistMovies, wishlistShows])
 
   return (
     <div className="cover-container">
@@ -52,12 +70,19 @@ function Cover({
               <img src={Play} alt="" className="play" />
               WATCH TRAILER
             </button>
-            <button className="watch-btn grey" title="Add to Wishlist">
-              <img src={Plus} alt="" className="plus" />
+            <button 
+            className={isAdded ? "watch-btn grey green" : "watch-btn grey"} 
+            title="Add to Wishlist"
+            onClick={isAdded ? null : (() => {
+              !shows
+              ? setWishlistMovies((prev) => wishlistMovies?.length === 0 ? [id] :[...prev, id])
+              : setWishlistShows((prev) => wishlistShows?.length === 0 ? [id] :[...prev, id]);
+            })}>
+              {isAdded ? <img src={Check} alt="" className="plus" /> : <img src={Plus} alt="" className="plus" />}
             </button>
           </div>
         </div>
-        <div className="poster-container">
+        <div className="poster-container" onClick={() => shows ? history.push(`/tv/${id}`) : history.push(`/movie/${id}`)}>
           <img src={posterUrl} alt="" className="poster" />
         </div>
       </div>

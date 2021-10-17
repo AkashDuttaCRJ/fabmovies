@@ -5,6 +5,7 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/";
 
 const BACKDROP_SIZE = "w1280";
 const POSTER_SIZE = "w500";
+const PROFILE_SIZE = "w185";
 
 const TRENDING_MOVIE_URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&include_adult=false`;
 const TRENDING_SHOWS_URL = `${BASE_URL}/trending/tv/day?api_key=${API_KEY}&include_adult=false`;
@@ -45,9 +46,17 @@ export const fetchSearchResult = async (QUERY, PAGE) => {
   return data;
 };
 
-export const fetchMovieById = async (ID) => {
+export const fetchById = async (MEDIA_TYPE, ID) => {
   const response = await fetch(
-    `${BASE_URL}/movie/${ID}?api_key=${API_KEY}&language=en-US`
+    `${BASE_URL}/${MEDIA_TYPE}/${ID}?api_key=${API_KEY}&language=en-US`
+  );
+  const data = response.json();
+  return data;
+};
+
+export const fetchCredits = async (MEDIA_TYPE, ID) => {
+  const response = await fetch(
+    `${BASE_URL}/${MEDIA_TYPE}/${ID}/credits?api_key=${API_KEY}&language=en-US`
   );
   const data = response.json();
   return data;
@@ -128,4 +137,4 @@ export const getShowsGenre = (id) => {
   }
 };
 
-export { IMAGE_URL, BACKDROP_SIZE, POSTER_SIZE };
+export { IMAGE_URL, BACKDROP_SIZE, POSTER_SIZE, PROFILE_SIZE };

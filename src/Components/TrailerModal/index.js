@@ -8,7 +8,7 @@ const TrailerModal = ({ url, showTrailer }) => {
   return (
     <div className="modal-background">
       <div className="modal-container">
-        <div className="menu-section">
+        <div className="modal-close">
           <button className="close" onClick={() => showTrailer(false)}>
             <img src={CrossIcon} alt="" className="cross-icon" />
           </button>
