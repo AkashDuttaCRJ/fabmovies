@@ -99,10 +99,10 @@ function Header() {
           />  
         </div>
         </a>
+        <button className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+            <img src={menu} alt="" />
+        </button>
       </div>
-      <button className="menu" onClick={() => setMenuOpen(!menuOpen)}>
-          <img src={menu} alt="" />
-      </button>
     </div>
   );
 }

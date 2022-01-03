@@ -13,7 +13,7 @@ const Menu = () => {
 
     return (
         <div className="menu-layer">
-            <div className={menuOpen ? "menu-section menu-open" : "menu-section"}>
+            <div className="menu-section">
                 <button className="menu menu-cross" onClick={() => setMenuOpen(!menuOpen)}>
                     <img src={CrossIcon} alt="" />
                 </button>

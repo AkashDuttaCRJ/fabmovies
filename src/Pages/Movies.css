@@ -1,3 +1,8 @@
 .carousel {
   margin-bottom: 10vh;
 }
+
+.prevent-scroll {
+  max-height: 100vh;
+  overflow-y: clip;
+}

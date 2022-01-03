@@ -31,6 +31,8 @@ function Shows() {
   const [videoId, setVideoId] = useState();
   const [videoUrl, setVideoUrl] = useState();
 
+  const [mainClass, setMainClass] = useState("app");
+
   const {menuOpen} = useContext(WishlistContext);
 
   useEffect(() => {
@@ -44,6 +46,11 @@ function Shows() {
     };
     videoId && getVideoUrl();
   }, [videoId]);
+
+  useEffect(() => {
+    openModal && setMainClass("app prevent-scroll");
+    !openModal && setMainClass("app");
+  }, [openModal])
 
   const getData = async () => {
     const data = await fetchTrendingShows();
@@ -69,7 +76,7 @@ function Shows() {
   };
 
   return (
-    <div className="app">
+    <div className={mainClass}>
       {openModal && videoUrl && (
         <TrailerModal url={videoUrl.results} showTrailer={setOpenModal} />
       )}
